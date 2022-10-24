@@ -99,5 +99,5 @@ For bowtie2 to run, the reference genome needs to be indexed
 **3. map Aedes samples to reference genome** 
 I have manually subset the sample list to retain only Culex samples for the mapping to the Culex pipiens genome
 ```
-sh ./scripts/map_to_host_Cx.sh
+sh ./scripts/map_to_host2.sh
 ```
