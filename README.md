@@ -50,13 +50,14 @@ Then look at outputs to check before and after QC metrics
 
 ### Host read removal
 
-**Map to the host genome and remove matching reads** \
+**Map to the host genome and remove matching reads** 
 This isn't optimal as my Aedes samples are from species without ref genomes, and the Culex species hadn't been determined (although possibly pipiens). But using hte Aedes aegypti and Culex pipiens genomes should remove a large amount of host reads.\
 
 For this I will use bowtie2 to map (https://bowtie-bio.sourceforge.net/bowtie2/manual.shtml)
 
 **Aedes aegypti reference genome GCF_002204515.2**
-**1. download and index reference genome** \
+
+**1. download and index reference genome** 
 ``` 
 mkdir ./Aeg_ref
 cd ./Aeg_ref
@@ -66,20 +67,20 @@ unzip ./Aeg_ref/GCF_002204515.2.zip
 ```
 (this code was from NCBI)
 
-**2. build bowtie2 index file** \
+**2. build bowtie2 index file** 
 For bowtie2 to run, the reference genome needs to be indexed
 ``` 
 /opt/miniconda/bin/bowtie2-build ./Aeg_ref/data/GCF_002204515.2/GCF_002204515.2_AaegL5.0_genomic.fna .Aeg_ref/GCF_002204515.2
 ```
 
-**3. map Aedes samples to reference genome** \
+**3. map Aedes samples to reference genome** 
 I have manually subset the sample list to retain only Aedes samples for the mapping to the Aedes aegypti genome
 ```
 sh ./scripts/map_to_host.sh
 ```
 
 **Culex pipiens reference genome GCA_016801865.2**
-**1. download and index reference genome** \
+**1. download and index reference genome** 
 ``` 
 mkdir ./Cxp_ref
 cd ./Cxp_ref
@@ -89,13 +90,13 @@ unzip ./Aeg_ref/GCF_002204515.2.zip
 ```
 (this code was from NCBI)
 
-**2. build bowtie2 index file** \
+**2. build bowtie2 index file** 
 For bowtie2 to run, the reference genome needs to be indexed
 ``` 
 /opt/miniconda/bin/bowtie2-build ./ncbi_dataset/data/GCA_016801865.2/GCA_016801865.2_TS_CPP_V2_genomic.fna ./GCA_016801865.2
 ```
 
-**3. map Aedes samples to reference genome** \
+**3. map Aedes samples to reference genome** 
 I have manually subset the sample list to retain only Culex samples for the mapping to the Culex pipiens genome
 ```
 sh ./scripts/map_to_host_Cx.sh
