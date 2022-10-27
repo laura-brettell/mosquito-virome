@@ -114,7 +114,17 @@ cp ./bowtie_*/alignments/*.pe.sam ./unmapped_reads/
 use samtools to extract the reads which didn't map to the host and extract them as fastq files
 ```
 sh ./scripts/sam_to_bam.sh
-sh ./scripts/extract_bam_to_fastq.sh
+sh ./scripts/extract_unmapped_bam.sh
+sh ./make_fastqs.sh
 ```
 
 ### Assembly
+
+Use spades https://github.com/ablab/spades
+
+```
+sh ./scripts/assemble_unmapped_reads.sh
+```
+
+also perform a big assembly of all unmapped reads from all samples
+
