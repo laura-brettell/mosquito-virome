@@ -116,6 +116,5 @@ use samtools to extract the reads which didn't map to the host and extract them 
 sh ./scripts/sam_to_bam.sh
 sh ./scripts/extract_bam_to_fastq.sh
 ```
-For some reason, the bamToFastq isn't working int he loop, but does individually, I'll come back to this but for now, running separately
 
 ### Assembly
