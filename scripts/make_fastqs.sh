@@ -1,7 +1,7 @@
 ## script to use the alignment files to determine unmapped reads then extract these in fastq formats
-# using samtools
 
-# pt 2 extract unmapped reads in bam and sort, then convert to fastq
+
+# pt 3 use bedtools to converted bam files to paired R1 and R2 fastqs
 
 
 for sample in $(cat ./temp_sample_list.txt)
