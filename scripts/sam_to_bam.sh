@@ -9,6 +9,6 @@ for sample in $(cat ./sample_list.txt)
 do
 	samtools view \
     -bS \
-    ./unmapped_reads/"$sample"_aln.pe.sam > ./unmapped_reads/"$sample"_aln.pe.bam
+    ./unmapped_reads/"$sample"_aln.pe.sam > ./unmapped_reads/"$sample"_mapped_and_unmapped.bam
         
 done
