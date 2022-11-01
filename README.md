@@ -126,5 +126,35 @@ Use spades https://github.com/ablab/spades
 sh ./scripts/assemble_unmapped_reads.sh
 ```
 
-also perform a big assembly of all unmapped reads from all samples
+also perform a big assembly of all unmapped reads from all samples.
+
+```
+/usr/bin/spades.py --rna -1 ./merged_samples_host_removed_R1.fq -2 ./merged_samples_host_removed_R2.fq -o ./assemblies/merged_host_removed_assembly --threads 4 --memory 100
+```
+
+For now take forward big assembly and idenitfy virus-like sequences.
+
+
+### Identification of virus-like reads
+
+Using Virsorter2 (https://github.com/jiarong/VirSorter2, https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-020-00990-y#Sec2 ).
+
+**Install and download databases as per github recommendation**
+
+```
+conda create -n vs2 -c conda-forge -c bioconda virsorter=2
+conda activate vs2
+rm -rf db
+virsorter setup -d db -j 4
+
+# need the following to overcome PuLP error
+conda install -c conda-forge glpk
+```
+
+**Run Virsorter2**
+
+```
+virsorter run -w ./virsorter2_results/pooled_assembly_virsorter2.out -i ./assemblies/merged_host_removed_assembly/transcripts.fasta --min-length 1500 -j 4 all --include-groups RNA
+```
+
 
